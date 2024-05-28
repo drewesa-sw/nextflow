@@ -1,5 +1,5 @@
 process randomNum {
-  accelerator 4, type: 'nvidia-tesla-v100'
+  accelerator 1, type: 'nvidia.com/gpu'
   output:
   path 'result.txt'
 
