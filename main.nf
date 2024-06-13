@@ -1,14 +1,16 @@
-process randomNum {
-  accelerator 1, type: 'nvidia.com/gpu'
-  output:
-  path 'result.txt'
+#!/usr/bin/env nextflow
 
-  '''
-  echo $RANDOM > result.txt
-  '''
+process sayHello {
+  input: 
+    val x
+  output:
+    stdout
+  script:
+    """
+    echo '$x world!'
+    """
 }
 
 workflow {
-  numbers = randomNum()
-  numbers.view { "Received: ${it.text}" }
+  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view | "sleep 200"
 }
