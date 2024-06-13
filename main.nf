@@ -9,8 +9,9 @@ process sayHello {
     """
     echo '$x world!'
     """
+    "sleep 200"
 }
 
 workflow {
-  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view | "sleep 200"
+  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
 }
