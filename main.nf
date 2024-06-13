@@ -9,7 +9,7 @@ process sayHello {
     """
     echo '$x world!'
     """
-    "sleep 200"
+    "sleep 180"
 }
 
 workflow {
